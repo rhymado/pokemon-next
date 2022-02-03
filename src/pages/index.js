@@ -3,9 +3,11 @@ import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
 
-import styles from "../commons/styles/Home.module.css";
+import styles from "src/commons/styles/Home.module.css";
 
-export default function Home() {
+export default function Home({ url }) {
+  console.log(url);
+  console.log(process.env.NEXT_PUBLIC_ANALYTICS_ID);
   const router = useRouter();
   const onClickHandler = () => {
     router.push("/pokemon");
@@ -84,4 +86,14 @@ export default function Home() {
       </footer>
     </div>
   );
+}
+
+// getServerSideProps, getInitialProps, getStaticProps
+export async function getServerSideProps() {
+  console.log("server", process.env.URL_BACKEND);
+  return {
+    props: {
+      url: process.env.URL_BACKEND,
+    },
+  };
 }
