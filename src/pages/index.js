@@ -32,7 +32,7 @@ export default function Home() {
         </p>
 
         <Link href={"/pokemon"}>
-          <div className="btn btn-primary">Click Me</div>
+          <div className="btn btn-primary">Click Me!</div>
         </Link>
 
         <div className="btn btn-secondary" onClick={onClickHandler}>
